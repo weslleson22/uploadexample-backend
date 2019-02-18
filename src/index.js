@@ -11,12 +11,9 @@ const app = express();
 /**
  * Database setup
  */
-mongoose.connect(
-  process.env.MONGO_URL,
-  {
-    useNewUrlParser: true
-  }
-);
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true
+});
 
 app.use(cors());
 app.use(express.json());
@@ -29,4 +26,4 @@ app.use(
 
 app.use(require("./routes"));
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
